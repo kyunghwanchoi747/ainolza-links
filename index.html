@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Nolza — Links</title>
+  <meta name="description" content="AI Nolza 공식 링크 모음">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;600;700&display=swap');
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Noto Sans KR', -apple-system, sans-serif;
+      min-height: 100vh;
+      background: #f5f5f5;
+      color: #1a1a1a;
+      display: flex;
+      justify-content: center;
+      padding: 40px 20px 60px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 440px;
+    }
+
+    /* ── 프로필 ── */
+    .profile {
+      text-align: center;
+      margin-bottom: 36px;
+    }
+
+    .avatar {
+      width: 88px;
+      height: 88px;
+      border-radius: 50%;
+      overflow: hidden;
+      margin: 0 auto 16px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .profile h1 {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .profile p {
+      font-size: 14px;
+      color: #888;
+      line-height: 1.5;
+    }
+
+    /* ── 섹션 ── */
+    .section {
+      margin-bottom: 28px;
+    }
+
+    .section-title {
+      font-size: 11px;
+      font-weight: 600;
+      color: #aaa;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 12px;
+      padding-left: 4px;
+    }
+
+    /* ── 링크 버튼 (입체형) ── */
+    .link-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .link-btn {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      background: #fff;
+      border: 1px solid #e8e8e8;
+      border-radius: 16px;
+      padding: 16px 18px;
+      text-decoration: none;
+      color: #1a1a1a;
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04), 0 1px 2px rgba(0,0,0,0.06);
+      transition: transform 0.25s cubic-bezier(.4,0,.2,1),
+                  box-shadow 0.25s cubic-bezier(.4,0,.2,1),
+                  border-color 0.2s;
+    }
+
+    .link-btn:hover {
+      transform: translateY(-4px) scale(1.01);
+      box-shadow: 0 12px 32px rgba(0,0,0,0.1), 0 4px 8px rgba(0,0,0,0.06);
+      border-color: #d0d0d0;
+    }
+
+    .link-btn:active {
+      transform: translateY(-1px) scale(0.99);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+
+    .link-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      overflow: hidden;
+    }
+
+    .link-icon.youtube { background: #FF0000; }
+    .link-icon.kakao { background: #FEE500; }
+    .link-icon.paypal { background: #003087; }
+    .link-icon.content { background: transparent; padding: 0; }
+    .link-icon.chrome { background: #1a1a1a; }
+    .link-icon.chrome2 { background: #1a1a1a; }
+
+    .link-icon.content img {
+      width: 44px;
+      height: 44px;
+      object-fit: cover;
+      border-radius: 12px;
+    }
+
+    .link-body {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .link-title {
+      font-size: 15px;
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+
+    .link-desc {
+      font-size: 12px;
+      color: #999;
+    }
+
+    .link-arrow {
+      color: #ccc;
+      font-size: 20px;
+      flex-shrink: 0;
+      transition: transform 0.25s cubic-bezier(.4,0,.2,1), color 0.2s;
+    }
+
+    .link-btn:hover .link-arrow {
+      transform: translateX(4px);
+      color: #888;
+    }
+
+    /* ── 뱃지 ── */
+    .badge {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 600;
+      padding: 2px 7px;
+      border-radius: 4px;
+      margin-left: 6px;
+      vertical-align: middle;
+    }
+    .badge.new { background: #1a1a1a; color: #fff; }
+    .badge.hot { background: #1a1a1a; color: #fff; }
+
+    /* ── 푸터 ── */
+    .footer {
+      text-align: center;
+      margin-top: 40px;
+      padding-top: 24px;
+      border-top: 1px solid #e8e8e8;
+    }
+
+    .footer-text {
+      font-size: 12px;
+      color: #bbb;
+    }
+
+    /* ── 카카오페이 QR 모달 ── */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.4);
+      z-index: 1000;
+      justify-content: center;
+      align-items: center;
+      padding: 24px;
+      backdrop-filter: blur(4px);
+    }
+    .modal-overlay.open { display: flex; }
+
+    .modal {
+      background: #fff;
+      border-radius: 20px;
+      padding: 32px 28px;
+      text-align: center;
+      max-width: 340px;
+      width: 100%;
+      box-shadow: 0 24px 64px rgba(0,0,0,0.15);
+    }
+
+    .modal h2 {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 6px;
+      color: #1a1a1a;
+    }
+
+    .modal p {
+      font-size: 13px;
+      color: #888;
+      margin-bottom: 20px;
+    }
+
+    .qr-frame {
+      background: #FEE500;
+      border-radius: 16px;
+      padding: 20px;
+      display: inline-block;
+      margin-bottom: 20px;
+    }
+
+    .modal-btn {
+      display: inline-block;
+      background: #FEE500;
+      color: #1a1a1a;
+      font-weight: 600;
+      font-size: 14px;
+      font-family: 'Noto Sans KR', sans-serif;
+      padding: 12px 32px;
+      border-radius: 10px;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      margin-bottom: 12px;
+      transition: background 0.15s;
+    }
+    .modal-btn:hover { background: #fdd800; }
+
+    .modal-close {
+      display: block;
+      background: none;
+      border: none;
+      color: #999;
+      font-size: 13px;
+      font-family: 'Noto Sans KR', sans-serif;
+      cursor: pointer;
+      margin: 0 auto;
+      padding: 4px 12px;
+    }
+    .modal-close:hover { color: #1a1a1a; }
+  </style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- 프로필 -->
+  <div class="profile">
+    <div class="avatar">
+      <img src="logo.jpg" alt="AI Nolza">
+    </div>
+    <h1>AI Nolza</h1>
+    <p>AI와 놀면서 배우자</p>
+  </div>
+
+  <!-- 채널 -->
+  <div class="section">
+    <div class="section-title">Channel</div>
+    <div class="link-list">
+      <a class="link-btn" href="https://www.youtube.com/@AINOLZA" target="_blank" rel="noopener">
+        <div class="link-icon youtube">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="#fff"><path d="M21.58 7.19s-.2-1.44-.83-2.08c-.8-.84-1.69-.84-2.1-.89C15.72 4 12 4 12 4s-3.72 0-6.65.22c-.41.05-1.3.05-2.1.89-.62.64-.82 2.08-.82 2.08S2.22 8.86 2.2 10.54v1.55c.02 1.67.23 3.34.23 3.34s.2 1.44.82 2.08c.8.84 1.85.81 2.32.9 1.68.16 6.43.21 6.43.21s3.72-.01 6.65-.23c.41-.05 1.3-.05 2.1-.89.62-.64.83-2.08.83-2.08s.2-1.67.22-3.34v-1.55c-.02-1.68-.22-3.35-.22-3.35zM9.96 14.98V8.7l5.68 3.15-5.68 3.13z"/></svg>
+        </div>
+        <div class="link-body">
+          <div class="link-title">YouTube 채널</div>
+          <div class="link-desc">AI 활용 영상 & 튜토리얼</div>
+        </div>
+        <span class="link-arrow">&rsaquo;</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- 콘텐츠 -->
+  <div class="section">
+    <div class="section-title">Contents</div>
+    <div class="link-list">
+      <a class="link-btn" href="https://ainolza.kr/contents" target="_blank" rel="noopener">
+        <div class="link-icon content">
+          <img src="book-mockup.png" alt="불편한 AI">
+        </div>
+        <div class="link-body">
+          <div class="link-title">책 & 강의</div>
+          <div class="link-desc">AI Nolza 콘텐츠 둘러보기</div>
+        </div>
+        <span class="link-arrow">&rsaquo;</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- 크롬 확장프로그램 -->
+  <div class="section">
+    <div class="section-title">Chrome Extensions</div>
+    <div class="link-list">
+      <a class="link-btn" href="https://chromewebstore.google.com/search/AI%20Nolza" target="_blank" rel="noopener">
+        <div class="link-icon chrome">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="#fff"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+        </div>
+        <div class="link-body">
+          <div class="link-title">NotebookLM Web Importer <span class="badge hot">2,300+</span></div>
+          <div class="link-desc">웹페이지를 NotebookLM에 바로 추가</div>
+        </div>
+        <span class="link-arrow">&rsaquo;</span>
+      </a>
+
+      <a class="link-btn" href="#" target="_blank" rel="noopener">
+        <div class="link-icon chrome2">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="#fff"><path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"/></svg>
+        </div>
+        <div class="link-body">
+          <div class="link-title">NotebookLM Bulk Delete <span class="badge new">NEW</span></div>
+          <div class="link-desc">노트북 일괄 선택 & 삭제</div>
+        </div>
+        <span class="link-arrow">&rsaquo;</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- 후원 -->
+  <div class="section">
+    <div class="section-title">Support</div>
+    <div class="link-list">
+      <div class="link-btn" onclick="openKakao()">
+        <div class="link-icon kakao">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="#3C1E1E"><path d="M12 3C6.48 3 2 6.58 2 10.94c0 2.8 1.86 5.27 4.66 6.67-.15.56-.96 3.6-.99 3.83 0 0-.02.17.09.24.11.06.24.01.24.01.32-.04 3.7-2.44 4.28-2.86.56.08 1.13.12 1.72.12 5.52 0 10-3.58 10-7.94C22 6.58 17.52 3 12 3z"/></svg>
+        </div>
+        <div class="link-body">
+          <div class="link-title">카카오페이 후원</div>
+          <div class="link-desc">QR코드로 간편 송금</div>
+        </div>
+        <span class="link-arrow">&rsaquo;</span>
+      </div>
+
+      <a class="link-btn" href="https://www.paypal.com/ncp/payment/AKU77WTX7PDWG" target="_blank" rel="noopener">
+        <div class="link-icon paypal">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+            <path d="M19.04 7.27c.07-.42.07-.87 0-1.35-.1-.46-.34-.88-.7-1.26C17.58 3.86 16.21 3.5 14.41 3.5H8.47L5.48 21.5h2.54l.94-5.97h.94l-.4 2.53h2.89c.03 0 .07-.01.1-.03.03-.03.06-.06.07-.13l.02-.1.48-3.05.03-.15c.04-.28.18-.52.38-.7.21-.17.47-.27.74-.27h.38c.59 0 1.13-.05 1.6-.16.49-.11.92-.29 1.28-.53.38-.25.69-.57.93-.97.27-.43.46-.95.57-1.55.1-.51.12-.96.07-1.34z" fill="#009cde"/>
+            <path d="M9.23 9.53h2.6c1.78 0 3.01.35 3.77 1.14.36.38.6.8.7 1.26.07.42.07.87 0 1.35-.11.6-.3 1.12-.57 1.55-.24.4-.55.72-.93.97-.36.24-.79.42-1.28.53-.47.11-1.01.16-1.6.16h-.38c-.27 0-.53.1-.74.27-.2.18-.34.42-.38.7l-.51 3.3h-2.3l1.62-11.23z" fill="#012169"/>
+          </svg>
+        </div>
+        <div class="link-body">
+          <div class="link-title">PayPal Donate</div>
+          <div class="link-desc">International donation (USD)</div>
+        </div>
+        <span class="link-arrow">&rsaquo;</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- 푸터 -->
+  <div class="footer">
+    <span class="footer-text">Produced by AI Nolza</span>
+  </div>
+
+</div>
+
+<!-- 카카오페이 QR 모달 -->
+<div class="modal-overlay" id="kakao-modal" onclick="closeKakao(event)">
+  <div class="modal" onclick="event.stopPropagation()">
+    <h2>카카오페이 송금</h2>
+    <p>QR코드를 스캔하거나 아래 버튼을 눌러주세요</p>
+    <div class="qr-frame">
+      <canvas id="qr-canvas" width="200" height="200"></canvas>
+    </div>
+    <br>
+    <a class="modal-btn" href="https://qr.kakaopay.com/FThfiaUou" target="_blank">카카오페이로 송금하기</a>
+    <button class="modal-close" onclick="closeKakao()">닫기</button>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.4/build/qrcode.min.js"></script>
+<script>
+  window.addEventListener('DOMContentLoaded', function() {
+    QRCode.toCanvas(document.getElementById('qr-canvas'), 'https://qr.kakaopay.com/FThfiaUou', {
+      width: 200,
+      margin: 1,
+      color: { dark: '#000000', light: '#FEE500' }
+    });
+  });
+
+  function openKakao() {
+    document.getElementById('kakao-modal').classList.add('open');
+  }
+  function closeKakao(e) {
+    if (!e || e.target === e.currentTarget) {
+      document.getElementById('kakao-modal').classList.remove('open');
+    }
+  }
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') closeKakao();
+  });
+</script>
+
+</body>
+</html>
